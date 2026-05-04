@@ -85,3 +85,13 @@ git push -u origin main
 3. Se o GitHub pedir login, use um **Personal Access Token** no lugar da senha, ou o **GitHub CLI** (`gh auth login`).
 
 **Build local:** `npm install` → `npm run build` → pasta `dist/` (não vai para o Git por causa do `.gitignore`).
+
+### GitHub Pages (evitar página em branco)
+
+O workflow `.github/workflows/deploy-github-pages.yml` faz o build e envia o resultado para o branch **`gh-pages`**. O site em produção tem de servir **esse** branch, não o código-fonte em `main`.
+
+1. **Settings** → **Actions** → **General** → **Workflow permissions** → ative **Read and write permissions** (para o GitHub Actions poder atualizar `gh-pages`).
+2. Faça push em `main` (ou execute o workflow manualmente em **Actions**) e espere o job **Deploy to GitHub Pages** concluir com sucesso.
+3. **Settings** → **Pages** → **Build and deployment** → **Source:** *Deploy from a branch* → **Branch:** `gh-pages` → **Folder:** `/ (root)` → Save.
+
+Se em Pages estiver **main** e **/(root)**, o GitHub serve o `index.html` do projeto com `<script src="/src/main.tsx">`, que não existe no servidor estático — a página fica em branco. O endereço do site continua a ser `https://SEU-USUARIO.github.io/NOME-DO-REPO/` (ex.: [Future-Guide](https://alexalonso26.github.io/Future-Guide/)).

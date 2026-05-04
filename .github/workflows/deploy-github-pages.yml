@@ -1,3 +1,7 @@
+# Publica a pasta dist/ no branch gh-pages.
+# No repositório: Settings → Pages → Source: Deploy from a branch → Branch: gh-pages, Folder: / (root).
+# Se publicares a branch main na raiz, o site usa index.html com /src/main.tsx e fica em branco.
+
 name: Deploy to GitHub Pages
 
 on:
