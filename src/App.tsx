@@ -235,7 +235,7 @@ function App() {
       </div>
 
       <footer className="footer">
-        <small>Future Guide · React · Vite · TypeScript</small>
+        <small>Projeto Desenvolvido por Alexandre Alonso</small>
       </footer>
       </div>
       <div className="side-panel side-panel--right" aria-hidden />
