@@ -71,3 +71,17 @@ export default defineConfig([
   },
 ])
 ```
+
+## Publicar no GitHub
+
+1. Crie um repositório **vazio** em [github.com/new](https://github.com/new) (sem README/licença gerados pelo site, para evitar conflito no primeiro push).
+2. Na pasta do projeto, ligue o remoto e envie (troque `SEU-USUARIO` e `NOME-DO-REPO`):
+
+```bash
+git remote add origin https://github.com/SEU-USUARIO/NOME-DO-REPO.git
+git push -u origin main
+```
+
+3. Se o GitHub pedir login, use um **Personal Access Token** no lugar da senha, ou o **GitHub CLI** (`gh auth login`).
+
+**Build local:** `npm install` → `npm run build` → pasta `dist/` (não vai para o Git por causa do `.gitignore`).
